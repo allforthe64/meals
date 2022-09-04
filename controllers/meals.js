@@ -6,7 +6,7 @@ module.exports = {
         try{
             const mealItems = await Meal.find({userId:req.user.id})
             const itemsLeft = await Meal.countDocuments({userId:req.user.id,completed: false})
-            res.render('meals.ejs', {meals: mealItems, left: itemsLeft, user: req.user})
+            res.render('meals.ejs', {meals: mealItems, left: itemsLeft, user: req.user, selector:-1})
         }catch(err){
             console.log(err)
         }
@@ -48,6 +48,22 @@ module.exports = {
             await Meal.findOneAndDelete({_id:req.body.mealIdFromJSFile})
             console.log('Deleted Meal')
             res.json('Deleted It')
+        }catch(err){
+            console.log(err)
+        }
+    },
+    getRandomMeal: async (req, res)=>{
+        try{
+            const mealItems = await Meal.find({userId:req.user.id})
+            const itemsLeft = await Meal.countDocuments({userId:req.user.id,completed: false})
+
+            //get a random meal out of the array
+
+            let randomNumber = Math.floor(Math.random() * (mealItems.length))
+
+            console.log(randomNumber)
+
+            res.render('meals.ejs', {meals: mealItems, left: itemsLeft, user: req.user, selector: randomNumber})
         }catch(err){
             console.log(err)
         }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <h1>Meals</h1>
@@ -32,6 +32,16 @@
         <input type="url" placeholder="Enter Image URL" name='img'>
         <input type="submit">
     </form>
+    <form action="/meals/getRandomMeal" method="GET">
+        <button type="submit">Get A Random Meal</button>
+    </form>
+
+    <% if (selector !== -1) { %>
+        <h1>Random Meal</h1>
+        <div>
+            <span class='<%= meals[selector].completed === true ? 'completed' : 'not'%>'><%= meals[selector].meal %></span>
+        </div>
+    <%}%>
 
     <a href="/logout">Logout</a>
 
