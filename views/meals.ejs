@@ -13,6 +13,12 @@
     <% meal.forEach( el => { %>
             <li class='mealItems' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.meal %></span>
+                <div class="link-con">
+                    <a href="<%= el.link %>" target="blank">Link</a>
+                </div>
+                <div>
+                    <img class="food-img" src="<%= el.img %>" alt="food pic">
+                </div>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -22,6 +28,8 @@
 
     <form action="/meals/createMeal" method='POST'>
         <input type="text" placeholder="Enter Meal Item" name='mealItem'>
+        <input type="url" placeholder="Enter Recipe Link" name='link'>
+        <input type="url" placeholder="Enter Image URL" name='img'>
         <input type="submit">
     </form>
 
