@@ -5,8 +5,8 @@ const MealSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  link: {
-    type: String,
+  completed: {
+    type: Boolean,
     required: true,
   },
   userId: {

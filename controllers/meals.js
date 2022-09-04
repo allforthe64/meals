@@ -6,7 +6,7 @@ module.exports = {
         try{
             const mealItems = await Meal.find({userId:req.user.id})
             const itemsLeft = await Meal.countDocuments({userId:req.user.id,completed: false})
-            res.render('meals.ejs', {meal: mealItems, left: itemsLeft, user: req.user})
+            res.render('meals.ejs', {meals: mealItems, left: itemsLeft, user: req.user})
         }catch(err){
             console.log(err)
         }
