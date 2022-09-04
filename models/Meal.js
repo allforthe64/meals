@@ -12,6 +12,14 @@ const MealSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
+  },
+  completed: {
+    type: Boolean,
+    required: true
+  },
+  img: {
+    type: String,
+    default: '',
   }
 })
 

@@ -13,7 +13,7 @@ module.exports = {
     },
     createMeal: async (req, res)=>{
         try{
-            await Meal.create({meal: req.body.mealItem, completed: false, userId: req.user.id})
+            await Meal.create({meal: req.body.mealItem, link: req.body.link, userId: req.user.id, completed: false, img: req.body.img})
             console.log('Meal has been added!')
             res.redirect('/meals')
         }catch(err){
