@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const MealSchema = new mongoose.Schema({
-  title: {
+  meal: {
     type: String,
     required: true,
   },
-  link: {
-    type: String,
+  completed: {
+    type: Boolean,
     required: true,
   },
   userId: {

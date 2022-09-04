@@ -10,15 +10,15 @@
 <body>
     <h1>Meals</h1>
     <ul>
-    <% meals.forEach( el => { %>
-            <li class='mealsItem' data-id='<%=el._id%>'>
+    <% meal.forEach( el => { %>
+            <li class='mealItems' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.meal %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    <h2><%= user.userName %> has <%= left %> meals planned.</h2>
 
     <form action="/meals/createMeal" method='POST'>
         <input type="text" placeholder="Enter Meal Item" name='mealItem'>
