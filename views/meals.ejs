@@ -10,7 +10,7 @@
 <body>
     <h1>Meals</h1>
     <ul>
-    <% meal.forEach( el => { %>
+    <% meals.forEach( el => { %>
             <li class='mealItems' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.meal %></span>
                 <div class="link-con">
