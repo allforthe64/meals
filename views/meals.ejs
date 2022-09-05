@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <h1>Your Saved Meals</h1>
     <div class="main">
-        <h1>Your Saved Meals</h1>
         <div class="gallery-container">
             <% meals.forEach( el => { %>
                 <div class="recipe-card">
@@ -26,9 +26,12 @@
         </div>
         <div class="random">
             <h2>Can't decide? Get a random meal!</h2>
+            <form action="/meals/getRandomMeal" method="GET">
+                <button type="submit">Get A Random Meal</button>
+            </form>
             <% if (selector !== -1) { %>
                 <div class="recipe-card">
-                    <li class='mealItems' data-id='<%=el._id%>'>
+                    <li class='mealItems' data-id='<%=meals[selector]._id%>'>
                         <img class="recipe-image" src="<%= meals[selector].img %>" alt="food pic">
                         <h4 class='recipe-title'><%= meals[selector].meal %></h4>
                         <div class="link-con">
@@ -37,9 +40,6 @@
                         <span class='del'> Delete </span>
                     </li>
                 </div>
-                <!-- <div>
-                    <span class='<%= meals[selector].completed === true ? 'completed' : 'not'%>'><%= meals[selector].meal %></span>
-                </div> -->
             <%}%>
         </div>
     </div>
@@ -51,16 +51,14 @@
         <input type="url" placeholder="Enter Image URL" name='img'>
         <input type="submit">
     </form>
-    <form action="/meals/getRandomMeal" method="GET">
-        <button type="submit">Get A Random Meal</button>
-    </form>
+    
 
-    <% if (selector !== -1) { %>
+    <!-- <% if (selector !== -1) { %>
         <h1>Random Meal</h1>
         <div>
             <span class='<%= meals[selector].completed === true ? 'completed' : 'not'%>'><%= meals[selector].meal %></span>
         </div>
-    <%}%>
+    <%}%> -->
 
     <a href="/logout">Logout</a>
 

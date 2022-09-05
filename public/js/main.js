@@ -16,6 +16,7 @@ Array.from(mealComplete).forEach((el)=>{
 
 async function deleteMeal(){
     const mealId = this.parentNode.dataset.id
+    console.log(mealId)
     try{
         const response = await fetch('meals/deleteMeal', {
             method: 'delete',

@@ -188,7 +188,9 @@ login.ejs & Sign Up styles
 }
 
 
-
+.main {
+    display: flex;
+}
 
 .gallery-container {
     width: 50%;
