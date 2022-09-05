@@ -1,5 +1,190 @@
+:root {
+    --main-bg-color: #034159;
+    --main-text-color: #025951;
+    --main-highlight-color: #0CF25D;
+
+    --mid-bg-color: #02735E;
+    --login-hover:  rgb(142, 254, 203);
+    --signup-hover: #effae9;
+
+    --alert-text: #e5e5e5;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
 h1{
-    color: red;
+    color: var(--main-text-color);
+}
+
+/* 
+===============
+INDEX.ejs  styles
+=============== 
+*/
+a {
+    text-decoration: none;
+}
+section {
+    align-items: center;
+    justify-content: center;
+}
+section h1{
+    color: var(--main-text-color);
+    font-size: 3rem;
+}
+.index-top { 
+  background-image: url("https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg");
+  min-height: calc(100vh - 60px)
+}
+.index-description {
+  background-color: white;
+}
+.index-description h3 {
+  font-size: 1rem;
+}
+
+.index-description h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.index-top > div {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+section div img {
+    width: 100%;
+    object-fit: cover;
+}
+.description {
+    margin: 2rem 0;
+    line-height: 1.8rem;
+}
+section div h3 {
+    font-size: 1.3rem;
+}
+.btn {
+    display: flex;
+    color: var(--main-bg-color);
+    font-size: 1.3rem;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    text-decoration: none; 
+    border-radius: 5px; 
+}
+.login {
+    background-color: var(--mid-bg-color);
+}
+.login:hover {
+    background-color: var(--login-hover);
+}
+.signup{
+    background-color: var(--main-text-color);
+}
+.signup:hover {
+    background-color: var(--signup-hover);
+}
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 2rem 4rem;
+}
+
+/*
+===============
+login.ejs & Sign Up styles
+=============== 
+*/
+#login-section {
+    width: 100vw;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container {
+    max-width: 400px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.form-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.form-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+.form-container .full-btn {
+    width: 100%;
+    background-color: var(--main-highlight-color);
+    border: none;
+    border-radius: 5px;
+}
+.form-container .full-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: var(--login-hover);
+    border: 1px solid var(--main-text-color);
+}
+.form-container p, .form-container input {
+    margin: 15px 0;;
+}
+.form-container input {
+    background-color: white;
+    height: 35px;
+}
+
+.form-container a {
+    text-decoration: underline;
+    color: var(--main-text-color);
+}
+.underlined-input {
+    background-color: var(--main-bg-color);
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--main-bg-color);
+    color: var(--main-text-color)
+}
+.underlined-input:active {
+    outline: none;
+    border: none;
+}
+
+.alert {
+    color: var(--alert-text)
+}
+
+
+
+
+
+.login {
+    background-color: var(--mid-bg-color);
+}
+.login:hover {
+    background-color: var(--login-hover);
+}
+
+.signup{
+    background-color: var(--main-text-color);
+}
+.signup:hover {
+    background-color: var(--signup-hover);
 }
 
 .completed{
