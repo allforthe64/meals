@@ -9,20 +9,23 @@
 </head>
 <body>
     <h1>Meals</h1>
-    <ul>
-    <% meals.forEach( el => { %>
-            <li class='mealItems' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.meal %></span>
-                <div class="link-con">
-                    <a href="<%= el.link %>" target="blank">Link</a>
+        <div class="gallery-container">
+            <% meals.forEach( el => { %>
+                <div class="recipe-card">
+                    <li class='mealItems' data-id='<%=el._id%>'>
+                        <img class="recipe-image" src="<%= el.img %>" alt="food pic">
+                        <h4 class='recipe-title'><%= el.meal %></h4>
+                        <div class="link-con">
+                            <a href="<%= el.link %>" target="blank">Link</a>
+                        </div>
+                        <span class='del'> Delete </span>
+                    </li>
                 </div>
-                <div>
-                    <img class="food-img" src="<%= el.img %>" alt="food pic">
-                </div>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+            <% }) %>    
+        </div>
+   
+    
+    
 
     <h2><%= user.userName %> has <%= left %> meals planned.</h2>
 
