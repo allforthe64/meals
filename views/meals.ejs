@@ -8,23 +8,42 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Meals</h1>
-    <ul>
-    <% meals.forEach( el => { %>
-            <li class='mealItems' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.meal %></span>
-                <div class="link-con">
-                    <a href="<%= el.link %>" target="blank">Link</a>
+    <div class="main">
+        <h1>Your Saved Meals</h1>
+        <div class="gallery-container">
+            <% meals.forEach( el => { %>
+                <div class="recipe-card">
+                    <li class='mealItems' data-id='<%=el._id%>'>
+                        <img class="recipe-image" src="<%= el.img %>" alt="food pic">
+                        <h4 class='recipe-title'><%= el.meal %></h4>
+                        <div class="link-con">
+                            <a href="<%= el.link %>" target="blank">Link</a>
+                        </div>
+                        <span class='del'> Delete </span>
+                    </li>
                 </div>
-                <div>
-                    <img class="food-img" src="<%= el.img %>" alt="food pic">
+            <% }) %>    
+        </div>
+        <div class="random">
+            <h2>Can't decide? Get a random meal!</h2>
+            <% if (selector !== -1) { %>
+                <div class="recipe-card">
+                    <li class='mealItems' data-id='<%=el._id%>'>
+                        <img class="recipe-image" src="<%= meals[selector].img %>" alt="food pic">
+                        <h4 class='recipe-title'><%= meals[selector].meal %></h4>
+                        <div class="link-con">
+                            <a href="<%= meals[selector].link %>" target="blank">Link</a>
+                        </div>
+                        <span class='del'> Delete </span>
+                    </li>
                 </div>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> meals planned.</h2>
+                <!-- <div>
+                    <span class='<%= meals[selector].completed === true ? 'completed' : 'not'%>'><%= meals[selector].meal %></span>
+                </div> -->
+            <%}%>
+        </div>
+    </div>
+    
 
     <form action="/meals/createMeal" method='POST'>
         <input type="text" placeholder="Enter Meal Item" name='mealItem'>
