@@ -2,6 +2,11 @@ const deleteBtn = document.querySelectorAll('.del')
 const mealItem = document.querySelectorAll('span.not')
 const mealComplete = document.querySelectorAll('span.completed')
 
+const rDel = document.getElementById('r-del')
+rDel.addEventListener('click', () => {
+    document.getElementById('random-card').remove()
+})
+
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteMeal)
 })
@@ -18,7 +23,7 @@ async function deleteMeal(){
     const mealId = this.parentNode.dataset.id
     console.log(mealId)
     try{
-        const response = await fetch('meals/deleteMeal', {
+        const response = await fetch('/meals/deleteMeal', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -27,7 +32,7 @@ async function deleteMeal(){
         })
         const data = await response.json()
         console.log(data)
-        location.reload()
+        location.replace("/meals")
     }catch(err){
         console.log(err)
     }

@@ -13,6 +13,6 @@ router.put('/markIncomplete', mealsController.markIncomplete)
 
 router.delete('/deleteMeal', mealsController.deleteMeal)
 
-router.get('/getRandomMeal', mealsController.getRandomMeal)
+router.get('/getRandomMeal', mealsController.getRandomMeal),
 
 module.exports = router

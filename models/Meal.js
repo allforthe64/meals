@@ -20,6 +20,10 @@ const MealSchema = new mongoose.Schema({
   img: {
     type: String,
     default: '',
+  },
+  tag: {
+    type: String,
+    default: ''
   }
 })
 

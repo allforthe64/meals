@@ -20,6 +20,9 @@
                             <a href="<%= el.link %>" target="blank">Link</a>
                         </div>
                         <span class='del'> Delete </span>
+                        <div>
+                            <p>Tag: <%= el.tag %></p>
+                        </div>
                     </li>
                 </div>
             <% }) %>    
@@ -30,14 +33,14 @@
                 <button type="submit">Get A Random Meal</button>
             </form>
             <% if (selector !== -1) { %>
-                <div class="recipe-card">
+                <div class="recipe-card" id="random-card">
                     <li class='mealItems' data-id='<%=meals[selector]._id%>'>
                         <img class="recipe-image" src="<%= meals[selector].img %>" alt="food pic">
                         <h4 class='recipe-title'><%= meals[selector].meal %></h4>
                         <div class="link-con">
                             <a href="<%= meals[selector].link %>" target="blank">Link</a>
                         </div>
-                        <span class='del'> Delete </span>
+                        <button id="r-del" type="submit"> Delete </button>
                     </li>
                 </div>
             <%}%>
@@ -49,6 +52,7 @@
         <input type="text" placeholder="Enter Meal Item" name='mealItem'>
         <input type="url" placeholder="Enter Recipe Link" name='link'>
         <input type="url" placeholder="Enter Image URL" name='img'>
+        <input type="text" placeholder="Enter A Tag" name='tag'>
         <input type="submit">
     </form>
     
@@ -62,6 +66,6 @@
 
     <a href="/logout">Logout</a>
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

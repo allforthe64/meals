@@ -237,7 +237,7 @@ login.ejs & Sign Up styles
 
 
 
-.del {
+.del, #r-del {
     color: red;
 }
 
