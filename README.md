@@ -1,6 +1,6 @@
-# Showlist / Movie Guide
+# What's for dinner?
 
-<img src="https://github.com/NickSramcik/showlist/blob/main/public/assets/best-buds-logo.png?raw=true" align="left" height="48" width="48" > What's for dinner?
+Recipe Tracker
 
 <br>
 Description of project
@@ -19,6 +19,7 @@ This is a fullstack web app running on NodeJS and Mongodb. Each recipe is stored
 
 Random Recipe: Allows users that can't decide what to make for dinner to get a random selection from their collection.
 
+![Screen shot](public/assets/meals2.PNG)
 
 # Packages/Dependencies used 
 
