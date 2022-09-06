@@ -1,24 +1,24 @@
-# Introduction
+# Showlist / Movie Guide
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+<img src="https://github.com/NickSramcik/showlist/blob/main/public/assets/best-buds-logo.png?raw=true" align="left" height="48" width="48" > What's for dinner?
 
----
+<br>
+Description of project
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
+Users can easily keep track of what Recipes they have added to their list and easily link to the websites. There is also a function that allows them to generate a random recipe. 
 
----
+Full Website: 
 
-# Objectives
+![Screen shot](public/assets/meals1.PNG)
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+## How It's Made:
 
----
+**Tech used:** HTML, EJS, CSS, JavaScript, NodeJS, Mongodb
 
-# Who is this for? 
+This is a fullstack web app running on NodeJS and Mongodb. Each recipe is stored as an individual object inside of a database, which can then be retrieved via the server's own web API. The front-end of the application uses EJS to dynamically render show data that the user retrieves. 
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+Random Recipe: Allows users that can't decide what to make for dinner to get a random selection from their collection.
 
----
 
 # Packages/Dependencies used 
 
@@ -38,7 +38,14 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
   - PORT: 2121 (can be any port example: 3000) 
   - DB_STRING: `your database URI` 
  ---
- 
- Have fun testing and improving it! 😎
+
+## Lessons Learned:
+Github version control can come in very handy. Communicating with your teamates also adds to success.
 
 
+## Optimizations
+Additional features:
+
+- Allow users to build out a 'week' of meals
+
+- Add a tags search feature so users can search their menu lists for specific meals such as 'Quick', 'Chicken' or 'Breakfast'
