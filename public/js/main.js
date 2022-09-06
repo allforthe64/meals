@@ -3,9 +3,9 @@ const mealItem = document.querySelectorAll('span.not')
 const mealComplete = document.querySelectorAll('span.completed')
 const rDel = document.getElementById('r-del')
 
-// rDel.addEventListener('click', () => { 
-//     document.getElementById('random-card').remove()
-// })
+rDel.addEventListener('click', () => { 
+     document.getElementById('random-card').remove()
+ })
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteMeal)
