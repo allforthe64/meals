@@ -1,11 +1,11 @@
 const deleteBtn = document.querySelectorAll('.del')
 const mealItem = document.querySelectorAll('span.not')
 const mealComplete = document.querySelectorAll('span.completed')
-
 const rDel = document.getElementById('r-del')
-rDel.addEventListener('click', () => {
-    document.getElementById('random-card').remove()
-})
+
+// rDel.addEventListener('click', () => { 
+//     document.getElementById('random-card').remove()
+// })
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteMeal)
@@ -20,8 +20,7 @@ Array.from(mealComplete).forEach((el)=>{
 })
 
 async function deleteMeal(){
-    const mealId = this.parentNode.dataset.id
-    console.log(mealId)
+    const mealId = this.parentNode.parentNode.dataset.id
     try{
         const response = await fetch('/meals/deleteMeal', {
             method: 'delete',

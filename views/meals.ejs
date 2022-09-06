@@ -8,63 +8,87 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Your Saved Meals</h1>
+    <nav>
+        <a href='/'>
+            <img class='logo' src='assets/chefs-hat.png' alt='recipe-tracker-logo'/>
+        </a>
+
+        <h1>
+            <%= user.userName.toUpperCase()  %>'s Recipe list
+        </h1>
+        
+        <div class="login-out">
+            <a href="/logout">Logout</a> 
+        </div>  
+    </nav>
+
+    
     <div class="main">
+        
         <div class="gallery-container">
-            <% meals.forEach( el => { %>
-                <div class="recipe-card">
-                    <li class='mealItems' data-id='<%=el._id%>'>
-                        <img class="recipe-image" src="<%= el.img %>" alt="food pic">
-                        <h4 class='recipe-title'><%= el.meal %></h4>
-                        <div class="link-con">
-                            <a href="<%= el.link %>" target="blank">Link</a>
+            <div class="meals-header">
+                <h3>Your Saved Meals</h3>
+            </div>
+            <div class="recipes">
+                <% meals.forEach( el => { %>
+                        <div class="recipe-card">
+                            <li class='mealItems' data-id='<%=el._id%>'>
+                                <img class="recipe-image" src="<%= el.img %>" alt="food pic">
+                                <h4 class='recipe-title'><%= el.meal %></h4>
+                                <div class="options">
+                                    <div class="link-con">
+                                        <a href="<%= el.link %>" target="blank">Link</a>
+                                    </div>
+                                    <span class='del'> Delete </span>
+                                </div>
+                                <div>
+                                    <p class="tag"><%= el.tag %></p>
+                                </div>
+                            </li>
                         </div>
-                        <span class='del'> Delete </span>
-                        <div>
-                            <p>Tag: <%= el.tag %></p>
-                        </div>
-                    </li>
-                </div>
-            <% }) %>    
+                <% }) %>    
+            </div>
         </div>
-        <div class="random">
-            <h2>Can't decide? Get a random meal!</h2>
-            <form action="/meals/getRandomMeal" method="GET">
-                <button type="submit">Get A Random Meal</button>
-            </form>
-            <% if (selector !== -1) { %>
-                <div class="recipe-card" id="random-card">
-                    <li class='mealItems' data-id='<%=meals[selector]._id%>'>
-                        <img class="recipe-image" src="<%= meals[selector].img %>" alt="food pic">
-                        <h4 class='recipe-title'><%= meals[selector].meal %></h4>
-                        <div class="link-con">
-                            <a href="<%= meals[selector].link %>" target="blank">Link</a>
-                        </div>
-                        <button id="r-del" type="submit"> Delete </button>
-                    </li>
+        <div class="other">
+            <div class="add-meal">
+                <div class="meals-header">
+                    <h3>Add a meal</h3>
                 </div>
-            <%}%>
+                <form class="form" action="/meals/createMeal" method='POST'>
+                    <input type="text" placeholder="Enter Meal Title" name='mealItem'>
+                    <input type="url" placeholder="Enter Recipe Link" name='link'>
+                    <input type="url" placeholder="Enter Image URL" name='img'>
+                    <input type="text" placeholder="Enter A Tag" name='tag'>
+                    <input class="submit-btn" type="submit">
+                </form>
+            </div>
+            <div class="random">
+                <div class="meals-header">
+                    <h3>Can't decide?</h3>
+                </div>
+                <div class="container">
+                    <div class="random-info-box">
+                        <p>Get a random meal! Click the button below and a random meal will be selected from your recipe list. Take the hassle out of meal planning!</p>
+                        <form action="/meals/getRandomMeal" method="GET">
+                            <button class="submit-btn" type="submit">Get A Random Meal</button>
+                        </form>
+                    </div>
+                    <% if (selector !== -1) { %>
+                        <div class="recipe-card" id="random-card">
+                            <li class='mealItems' data-id='<%=meals[selector]._id%>'>
+                                <img class="recipe-image" src="<%= meals[selector].img %>" alt="food pic">
+                                <h4 class='recipe-title'><%= meals[selector].meal %></h4>
+                                <div class="link-con">
+                                    <a href="<%= meals[selector].link %>" target="blank">Link</a>
+                                </div>
+                                <button id="r-del" type="submit"> Delete </button>
+                            </li>
+                        </div>
+                    <%}%>
+                </div>
+            </div>   
         </div>
     </div>
-    
-
-    <form action="/meals/createMeal" method='POST'>
-        <input type="text" placeholder="Enter Meal Item" name='mealItem'>
-        <input type="url" placeholder="Enter Recipe Link" name='link'>
-        <input type="url" placeholder="Enter Image URL" name='img'>
-        <input type="text" placeholder="Enter A Tag" name='tag'>
-        <input type="submit">
-    </form>
-    
-
-    <!-- <% if (selector !== -1) { %>
-        <h1>Random Meal</h1>
-        <div>
-            <span class='<%= meals[selector].completed === true ? 'completed' : 'not'%>'><%= meals[selector].meal %></span>
-        </div>
-    <%}%> -->
-
-    <a href="/logout">Logout</a>
 
     <script src="/js/main.js"></script>
 </body>

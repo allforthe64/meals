@@ -20,6 +20,47 @@ h1{
 
 /* 
 ===============
+Nav  styles
+=============== 
+*/
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.2);
+    background-color: white;
+}
+nav a, nav h1 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+nav h1 {
+    font-size: 2.5rem;
+}
+
+nav a {
+    padding-left: 25px;
+}
+
+.login-out {
+    padding-right: 25px;
+}
+
+nav a:hover {
+    color: var(--main-highlight-color)
+}
+.logo {
+    height: 50px;
+}
+
+
+/* 
+===============
 INDEX.ejs  styles
 =============== 
 */
@@ -35,24 +76,17 @@ section h1{
     font-size: 3rem;
 }
 .index-top { 
-  /*background-image: url("https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg");*/
-  min-height: calc(100vh - 60px)
+    background-image: url("https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg");
+    background-color: white;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .index-description {
-  background-color: white;
-}
-.index-description h3 {
-  font-size: 1rem;
-}
-
-.index-description h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin: auto;
-  text-transform: uppercase;
-}
-
-.index-top > div {
+    background-color: white;
+    width: 400px;
+    border-radius: 1.5rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -60,11 +94,11 @@ section h1{
     align-items: center;
     text-align: center;
 }
-section div img {
-    width: 100%;
-    object-fit: cover;
+.index-description h3 {
+  font-size: 1rem;
 }
-.description {
+
+.best-buds-description {
     margin: 2rem 0;
     line-height: 1.8rem;
 }
@@ -73,7 +107,7 @@ section div h3 {
 }
 .btn {
     display: flex;
-    color: var(--main-bg-color);
+    color: white;
     font-size: 1.3rem;
     font-weight: bolder;
     justify-content: center;
@@ -84,16 +118,18 @@ section div h3 {
     border-radius: 5px; 
 }
 .login {
-    background-color: var(--mid-bg-color);
+    background-color: var(--main-bg-color);
 }
 .login:hover {
     background-color: var(--login-hover);
+    color: var(--main-text-color);
 }
 .signup{
-    background-color: var(--main-text-color);
+    background-color: var(--main-bg-color);
 }
 .signup:hover {
-    background-color: var(--signup-hover);
+    background-color: var(--login-hover);
+    color: var(--main-text-color);
 }
 .button-container {
     display: flex;
@@ -171,21 +207,11 @@ login.ejs & Sign Up styles
 
 
 
-
-
-.login {
-    background-color: var(--mid-bg-color);
-}
-.login:hover {
-    background-color: var(--login-hover);
-}
-
-.signup{
-    background-color: var(--main-text-color);
-}
-.signup:hover {
-    background-color: var(--signup-hover);
-}
+/*
+===============
+meals.ejs styles
+=============== 
+*/
 
 
 .main {
@@ -194,28 +220,45 @@ login.ejs & Sign Up styles
 
 .gallery-container {
     width: 50%;
+}
+
+.meals-header {
+    width: 70%;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    border: 1px solid var(--main-highlight-color);
+    border-radius: 2rem;
+    margin: 15px auto;
+}
+
+.meals-header h3 {
+    margin: auto 20px;
+}
+
+.recipes {
     display: flex;
-    flex-direction: column;
-    padding-top:20px;
-    padding-bottom: 20px;
-    border: 3px solid black;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .recipe-card {
-    width: 50%;
+    width: 40%;
     height: 14rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 3px 5px 10px black;
+}
+
+.mealItems {
+    height: 100%;
+    width: 100%;
+    list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 10px;
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: 10px 10px 20px black;
-}
-
-.mealItems {
-    list-style: none;
 }
 
 .recipe-image {
@@ -223,21 +266,103 @@ login.ejs & Sign Up styles
     height: 6rem;
     width: 8rem;
     border-radius: .25rem;
+    border: 1px solid var(--main-bg-color);
 }
 
 .recipe-title {
-    font-size: 1rem;
+    font-size: 1.7rem;
+    color: #034159;
     margin: 0;
+    text-align: center;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 
 .link-con {
-    margin-top: 3px;
+    width: 75px;
+    background-color: var(--main-text-color);
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 5px auto;
 }
 
-
-
+.link-con a {
+    color: white;
+    text-decoration: none;
+}
 
 .del, #r-del {
-    color: red;
+    width: 75px;
+    color:white;
+    background-color: #0CF25D;
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 5px auto;
 }
 
+.add-meal, .random {
+    width: 100%;
+    height: 250px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.form input {
+    width: 40%;
+    padding: 12px 10px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    width: 100%;
+    font-size: 1.2rem;
+    color: var(--main-text-color);
+    background-color: var(--main-highlight-color);
+    border: none;
+    border-radius: 5px;
+}
+
+.random .submit-btn {
+    width: 200px;
+    height: 40px;
+    margin: 20px auto;
+    border: 1px solid var(--main-text-color);
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: var(--login-hover);
+    border: 1px solid var(--main-text-color);
+}
+
+.container {
+    display: flex;
+    padding: 10px 0;
+}
+
+.random-info-box {
+    width: 50%;
+    text-align: center;
+    color: white;
+}
+
+.random-info-box p {
+    padding: 0 20px;
+    font-size: 1.2rem;
+}

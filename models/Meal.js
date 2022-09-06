@@ -13,10 +13,6 @@ const MealSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  completed: {
-    type: Boolean,
-    required: true
-  },
   img: {
     type: String,
     default: '',
@@ -24,7 +20,7 @@ const MealSchema = new mongoose.Schema({
   tag: {
     type: String,
     default: ''
-  }
+  },
 })
 
 module.exports = mongoose.model('Meal', MealSchema)

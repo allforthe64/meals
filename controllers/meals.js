@@ -43,7 +43,7 @@ module.exports = {
         }
     },
     deleteMeal: async (req, res)=>{
-        console.log(req.body.mealIdFromJSFile)
+        console.log(`here I am ${req.body.mealIdFromJSFile}`)
         try{
             await Meal.findOneAndDelete({_id:req.body.mealIdFromJSFile})
             console.log('Deleted Meal')
@@ -55,15 +55,13 @@ module.exports = {
     getRandomMeal: async (req, res)=>{
         try{
             const mealItems = await Meal.find({userId:req.user.id})
-            const itemsLeft = await Meal.countDocuments({userId:req.user.id,completed: false})
 
             //get a random meal out of the array
-
             let randomNumber = Math.floor(Math.random() * (mealItems.length))
 
             console.log(randomNumber)
 
-            res.render('meals.ejs', {meals: mealItems, left: itemsLeft, user: req.user, selector: randomNumber})
+            res.render('meals.ejs', {meals: mealItems, user: req.user, selector: randomNumber})
         }catch(err){
             console.log(err)
         }
